@@ -138,6 +138,7 @@ class DaikinSkyportSensor(SensorEntity):
         """Initialize the sensor."""
         self.data = data
         self._name = f"{sensor_name} {SENSOR_TYPES[sensor_type]['device_class']}"
+        self._state_class = SENSOR_TYPES[sensor_type]["state_class"]
         self._attr_unique_id = f"{data.daikinskyport.thermostats[sensor_index]['id']}-{self._name}"
         self._model = f"{data.daikinskyport.thermostats[sensor_index]['model']}"
         self._sensor_name = sensor_name
@@ -161,6 +162,13 @@ class DaikinSkyportSensor(SensorEntity):
         """Return the device class of the sensor."""
         if self._type in SENSOR_TYPES:
             return self._type
+        return None
+
+    @property
+    def state_class(self):
+        """Return the state class of the sensor."""
+        if self._type in SENSOR_TYPES:
+            return self._state_class
         return None
 
     @property
