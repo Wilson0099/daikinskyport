@@ -1,6 +1,6 @@
 {
-  "name": "Daikin Skyport",
-  "domains": ["daikinskyport"],
+  "name": "Daikin Skyport2",
+  "domains": ["daikinskyport2"],
   "iot_class": ["Cloud Polling"],
   "render_readme": true
 }
