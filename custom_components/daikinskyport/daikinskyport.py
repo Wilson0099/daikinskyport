@@ -237,7 +237,7 @@ class DaikinSkyport(object):
         sensors.append({"name": f"{name} Indoor", "value": thermostat['ctIndoorPower'], "type": "power"})
         sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctOutdoorFanRPM'], "type": "number"})
         sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctTargetODFanRPM'], "type": "number"})
-        sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctCurrentCompressorRPS'], "type": "number"})
+        sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctCurrentCompressorRPS'], "type": "demand"})
         sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctTargetCompressorspeed'], "type": "number"})
         sensors.append({"name": f"{name} Outdoor", "value": thermostat['quietModeActive'], "type": "number"})
         sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctOutdoorQuietModeEnabled'], "type": "number"})
