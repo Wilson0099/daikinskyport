@@ -50,6 +50,7 @@ DAIKIN_WEATHER_ICON_TO_HASS = {
 
 # The multiplier applied by the API to percentage values.
 DAIKIN_PERCENT_MULTIPLIER = 2
+DAIKIN_FANDEMAND_MULTIPLIER = 10
 
 # Possible hvac modes are auto (3), auxHeatOnly (4), cool (2), heat (1), off (0) '''
 DAIKIN_HVAC_MODE_OFF = 0
