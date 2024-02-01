@@ -10,6 +10,7 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
 from .const import DAIKIN_PERCENT_MULTIPLIER
+from .const import DAIKIN_FANDEMAND_MULTIPLIER
 
 logger = logging.getLogger('daikinskyport')
 
@@ -236,7 +237,7 @@ class DaikinSkyport(object):
         sensors.append({"name": f"{name} Indoor dehumidifier", "value": round(thermostat['ctIFCDehumRequestedDemandPercent'] / DAIKIN_PERCENT_MULTIPLIER, 1), "type": "demand"})
         sensors.append({"name": f"{name} Indoor", "value": thermostat['ctIndoorPower'], "type": "power"})
         sensors.append({"name": f"ctOutdoorFanRPM", "value": thermostat['ctOutdoorFanRPM'], "type": "number"})
-        sensors.append({"name": f"ctTargetODFanRPM", "value": round(thermostat['ctTargetODFanRPM'] * 10, 1), "type": "number"})
+        sensors.append({"name": f"ctTargetODFanRPM", "value": round(thermostat['ctTargetODFanRPM'] * DAIKIN_FANDEMAND_MULTIPLIER, 1), "type": "number"})
         sensors.append({"name": f"ctCurrentCompressorRPS", "value": thermostat['ctCurrentCompressorRPS'], "type": "number"})
         sensors.append({"name": f"ctTargetCompressorspeed", "value": thermostat['ctTargetCompressorspeed'], "type": "number"})
         sensors.append({"name": f"quietModeActive", "value": thermostat['quietModeActive'], "type": "number"})
