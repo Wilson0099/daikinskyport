@@ -110,6 +110,12 @@ SENSOR_TYPES = {
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": "mdi:percent",
     },
+    "number": {
+        "device_class": None,
+        "native_unit_of_measurement": None,
+        "state_class": SensorStateClass.MEASUREMENT,
+        "icon": "mdi:cloud",
+    },
 }
 
 
@@ -126,7 +132,7 @@ async def async_setup_entry(
         for sensor in sensors:
             if sensor["type"] not in ("temperature", "humidity", "score",
                                       "ozone", "particle", "VOC", "demand",
-                                      "power", "frequency_percent",
+                                      "power", "frequency_percent", "number",
                                       "actual_status") or sensor["value"] == 127.5 or sensor["value"] == 65535:
                 continue
             async_add_entities([DaikinSkyportSensor(coordinator, sensor["name"], sensor["type"], index)], True)
