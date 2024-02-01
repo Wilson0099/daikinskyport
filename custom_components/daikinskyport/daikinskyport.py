@@ -217,12 +217,12 @@ class DaikinSkyport(object):
         sensors = list()
         thermostat = self.thermostats[index]
         name = thermostat['name']
-        sensors.append({"name":  f"{name} Outdoor", "value": thermostat['tempOutdoor'], "type": "temperature"})
-        sensors.append({"name": f"{name} Outdoor", "value": thermostat['humOutdoor'], "type": "humidity"})
+        sensors.append({"name":  f"OutdoorTemperature", "value": thermostat['tempOutdoor'], "type": "temperature"})
+        sensors.append({"name": f"OutdoorHumidity", "value": thermostat['humOutdoor'], "type": "humidity"})
         sensors.append({"name": f"{name} Outdoor fan", "value": round(thermostat['ctOutdoorFanRequestedDemandPercentage'] / DAIKIN_PERCENT_MULTIPLIER, 1), "type": "demand"})
         sensors.append({"name": f"{name} Outdoor heat pump", "value": round(thermostat['ctOutdoorHeatRequestedDemand'] / DAIKIN_PERCENT_MULTIPLIER, 1), "type": "demand"})
         sensors.append({"name": f"{name} Outdoor cooling", "value": round(thermostat['ctOutdoorCoolRequestedDemand'] / DAIKIN_PERCENT_MULTIPLIER, 1), "type": "demand"})
-        sensors.append({"name": f"{name} Outdoor", "value": thermostat['ctOutdoorPower'], "type": "power"})
+        sensors.append({"name": f"OutdoorPower", "value": thermostat['ctOutdoorPower'], "type": "power"})
         sensors.append({"name": f"{name} Outdoor", "value": round(thermostat['ctOutdoorFrequencyInPercent'] / DAIKIN_PERCENT_MULTIPLIER, 1), "type": "frequency_percent"})
         sensors.append({"name": f"{name} Indoor", "value": thermostat['tempIndoor'], "type": "temperature"})
         sensors.append({"name": f"{name} Indoor", "value": thermostat['humIndoor'], "type": "humidity"})
