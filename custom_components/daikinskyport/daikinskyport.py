@@ -244,7 +244,9 @@ class DaikinSkyport(object):
         sensors.append({"name": f"ctOutdoorQuietModeEnabled", "value": thermostat['ctOutdoorQuietModeEnabled'], "type": "number"})
         sensors.append({"name": f"ctOutdoorNoiseDownLevel", "value": thermostat['ctOutdoorNoiseDownLevel'], "type": "number"})
         sensors.append({"name":  f"OutdoorTemperature_num", "value": thermostat['tempOutdoor'], "type": "number"})
-        sensors.append({"name":  f"OutdoorTemperature_fanscaled", "value": (thermostat['tempOutdoor'] * DAIKIN_FANDEMAND_MULTIPLIER), "type": "temperature"})
+        sensors.append({"name":  f"OutdoorTemperature_fanscaled", "value": (thermostat['tempOutdoor'] * DAIKIN_FANDEMAND_MULTIPLIER), "type": "number"})
+        sensors.append({"name":  f"IndoorTemperature_num", "value": thermostat['tempIndoor'], "type": "number"})
+        sensors.append({"name":  f"IndoorTemperature_fanscaled", "value": (thermostat['tempIndoor'] * DAIKIN_FANDEMAND_MULTIPLIER), "type": "number"})
         if self.thermostats[index]['aqOutdoorAvailable']:
             sensors.append({"name": f"{name} Outdoor", "value": thermostat['aqOutdoorParticles'], "type": "particle"})
             sensors.append({"name": f"{name} Outdoor", "value": thermostat['aqOutdoorValue'], "type": "score"})
